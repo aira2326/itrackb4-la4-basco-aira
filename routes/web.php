@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MovieController;
+use App\Http\Controllers\BookController;
 
-Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/books', [BookController::class, 'index']);

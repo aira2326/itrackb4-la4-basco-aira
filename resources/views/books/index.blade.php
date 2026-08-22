@@ -7,7 +7,7 @@
 
     <h1>My Book List</h1>
 
-    <p>Prepared by: Aira Basco</p>
+    <p>Prepared by: Amor Tonio</p>
 
     <table border="1" cellpadding="8">
         <tr>
@@ -23,7 +23,6 @@
                 <td>{{ $book['year'] }}</td>
             </tr>
         @endforeach
-
     </table>
 
 </body>
