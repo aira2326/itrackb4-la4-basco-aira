@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\ProductController;
 
-Route::get('/books', [BookController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index']);
