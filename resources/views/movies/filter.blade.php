@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Movie List</title>
+    <title>Movie Filter</title>
 </head>
 <body>
 
-    <h1>Movie List</h1>
+    <h1>Movie Filter</h1>
 
     <p><strong>Full Name:</strong> Aira Basco</p>
+
+    <p>{{ $message }}</p>
 
     <table border="1">
         <tr>
@@ -21,13 +23,7 @@
         @foreach ($movies as $movie)
             <tr>
                 <td>{{ $movie['id'] }}</td>
-
-                <td>
-                    <a href="/movies/{{ $movie['id'] }}">
-                        {{ $movie['title'] }}
-                    </a>
-                </td>
-
+                <td>{{ $movie['title'] }}</td>
                 <td>{{ $movie['director'] }}</td>
                 <td>{{ $movie['genre'] }}</td>
                 <td>{{ $movie['year'] }}</td>
@@ -37,7 +33,9 @@
 
     <br>
 
-    <a href="/movies/featured">View Featured Movie</a>
+    <a href="{{ route('movies.index') }}">
+        ← Back to Movies
+    </a>
 
 </body>
 </html>
