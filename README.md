@@ -1,39 +1,14 @@
-# Movie Project
+LA3 - Book Routes and Filtering
 
-## Q1. Featured Route and Detail Route
+## 1. What does the detail route do?
 
-I placed the featured route before the detail route. This is because `/movies/{id}` can also match `featured` as an ID. If I put the detail route first, the featured route may not work.
+The detail route uses a book ID to find one specific book. It shows all the information about that book on a separate page. If the ID does not exist, the system shows a 404 error.
 
-Example:
+## 2. Why must the featured and filter routes come before `/books/{id}`?
 
-```php
-Route::get('/movies/featured', [MovieController::class, 'featured'])
-    ->name('movies.featured');
+Laravel checks the routes from top to bottom. The `/books/{id}` route is a general route, so it can also match words like `featured` or `filter`. Putting the more specific routes first prevents them from being treated as an ID.
 
-Route::get('/movies/{id}', [MovieController::class, 'show'])
-    ->name('movies.show');
-````
+## 3. Why use named routes and the `route()` helper?
 
-## Q2. Non-existing ID
-
-When a visitor enters an ID that does not exist, the system shows a 404 page instead of a PHP error. I used `isset()` to check if the ID exists and `abort(404)` if it does not.
-
-Example:
-
-```php
-if (!isset($movies[$id])) {
-    abort(404);
-}
-```
-
-## Q3. Route Names
-
-I used route names for my links instead of typing the URLs directly. This makes the links easier to maintain because if I change the URL of a route, I do not need to edit every Blade file.
-
-Example:
-
-```php
-<a href="{{ route('movies.index') }}">
-    ← Back to Movies
-</a>
+Named routes make the links easier to manage because the views do not need to use hardcoded URLs. If the URL of a route changes, the links can still work because they use the route name.
 
