@@ -7,7 +7,6 @@ Route::get('/movies/featured', [MovieController::class, 'featured'])
     ->name('movies.featured');
 
 Route::get('/movies/{id}', [MovieController::class, 'show'])
-
     ->name('movies.show');
 Q2. Non-existing ID
 When a visitor enters an ID that does not exist, the system shows a 404 page instead of a PHP error. I used isset() to check if the ID exists and abort(404) if it does not.
